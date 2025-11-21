@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>We'll be back soon — Maintenance</title>
+  <meta name="description" content="Site temporarily down for maintenance. We'll be back shortly." />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#7dd3fc;
+      --muted:#94a3b8;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 10% 20%, rgba(125,211,252,0.06), transparent 8%),
+        radial-gradient(800px 400px at 90% 80%, rgba(99,102,241,0.04), transparent 8%),
+        var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .card{
+      width:100%;
+      max-width:920px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      border-radius:14px;
+      padding:36px;
+      display:flex;
+      gap:28px;
+      align-items:center;
+      backdrop-filter: blur(6px);
+    }
+    .art{flex:0 0 160px;display:flex;align-items:center;justify-content:center}
+    .art svg{width:140px;height:140px;display:block}
+    .content{flex:1;min-width:0}
+    h1{margin:0 0 6px 0;font-size:24px;letter-spacing:-0.02em}
+    p.lead{margin:0 0 16px 0;color:var(--muted)}
+    .details{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin-bottom:18px}
+    .btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#022;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(96,165,250,0.12);border:none;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04);box-shadow:none}
+    footer{margin-top:10px;color:var(--muted);font-size:13px}
+    @media (max-width:720px){.card{flex-direction:column;align-items:flex-start;padding:24px}.art{flex:0 0 auto}}
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#7dd3fc"/>
+            <stop offset="1" stop-color="#60a5fa"/>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="30" fill="url(#g)" opacity="0.08"/>
+        <path d="M20 29.5a12 12 0 0 1 24 0 12 12 0 0 1-24 0z" fill="#fff" opacity=".04"/>
+        <g transform="translate(8 6)" stroke="url(#g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <path d="M24 16a8 8 0 1 0 0 16 8 8 0 0 0 0-16z" />
+          <path d="M24 8v-6M24 30v6M12 16l-4-4M36 36l4 4M12 36l-4 4M36 16l4-4" />
+        </g>
+      </svg>
+    </div>
+
+    <div class="content">
+      <h1 id="title">We're doing some maintenance</h1>
+      <p class="lead">Sorry for the inconvenience — we're performing scheduled maintenance. The site is temporarily unavailable, but we'll be back shortly.</p>
+
+      <div class="details" aria-hidden="false">
+        <div>Estimated downtime: <strong>~15–45 minutes</strong></div>
+        <div>Last update: <strong id="time">just now</strong></div>
+      </div>
+
+      <div class="btns">
+        <button class="btn" onclick="location.reload()">Refresh</button>
+        <a class="btn ghost" href="mailto:admin@example.com">Contact support</a>
+      </div>
+
+      <footer>
+        If you need urgent help, contact support or check back soon.
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      const el = document.getElementById('time');
+      function update(){ el.textContent = 'just now'; }
+      update();
+    })();
+  </script>
+</body>
+</html>
